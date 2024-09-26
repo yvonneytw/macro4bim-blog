@@ -1,0 +1,12 @@
+[
+  {
+    "path": "src/components/pages/post/batch-create-new-family-types.md",
+    "route": "/post/batch-create-new-family-types",
+    "title": "Batch Create New Family Types"
+  },
+  {
+    "path": "src/components/pages/post/excel-in-revit.md",
+    "route": "/post/excel-in-revit",
+    "title": "Excel in Revit"
+  }
+]
