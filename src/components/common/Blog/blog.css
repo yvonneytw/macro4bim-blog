@@ -19,6 +19,36 @@
   }
 }
 
+.post-metadata {
+  display: flex;
+  justify-content: space-between;
+  a,
+  p,
+  button {
+    outline: 1px solid blue;
+    color: darkgrey;
+    margin: 0;
+    border: none;
+    background: none;
+  }
+  div:first-child {
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0.25rem;
+    }
+  }
+  div:nth-child(2) {
+    svg {
+      margin-right: 0.25rem;
+    }
+    button {
+      height: 1.5rem;
+      float: right;
+    }
+  }
+}
+
 .comment {
   border-top: 1px solid darkgray;
   margin-bottom: 1rem;
