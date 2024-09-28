@@ -3,7 +3,7 @@
 ## pyRevit extensions
 
 ![pyM4B](src/assets/pym4b.png)
-![pyM4B](public/pym4b.png)
+![pyM4B](/pym4b.png)
 
 pyMacro4BIM is a free extension of <a href="https://pyrevitlabs.notion.site/pyRevit-bd907d6292ed4ce997c46e84b6ef67a0" target="_blank">pyRevit</a> which contain script and solution which span into different disciplines.
 
