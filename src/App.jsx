@@ -6,13 +6,16 @@ import Home from "./components/pages/Home";
 import BlogPage from "./components/pages/BlogPage";
 import Footer from "./components/common/Footer";
 import MarkdownRenderer from "./components/common/MarkdownRenderer";
-import CommentList from "./components/common/Comment/CommentList";
-import RecentPost from "./components/common/Blog/RecentPost";
 import PostCategories from "./components/common/Blog/PostCategories";
-import PostShareAndMetadata from "./components/common/Blog/PostShareAndMetadata";
+// import RecentPost from "./components/common/Blog/RecentPost";
+// import PostShareAndMetadata from "./components/common/Blog/PostShareAndMetadata";
+// import CommentList from "./components/common/Comment/CommentList";
+// import postList from "./utils/postList.json";
+const markdownFiles = import.meta.glob("./assets/**/*.md", { eager: true });
 
 function App() {
   // const [count, setCount] = useState(0);
+
   return (
     <>
       <HeaderComponent />
@@ -22,23 +25,33 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/pym4b"
-            element={<MarkdownRenderer file="src/components/pages/pym4b.md" />}
-          />
-
-          <Route
-            path="/post/:mdFile"
             element={
               <>
-                <PostCategories />
-                <div className="framed">
-                  <MarkdownRenderer mdDir="../src/components/pages/post/" />
-                </div>
-                {/* <PostShareAndMetadata /> */}
-                {/* <RecentPost /> */}
-                {/* <CommentList /> */}
+                <MarkdownRenderer content={markdownFiles["./assets/pyM4B.md"].default} />
               </>
             }
           />
+
+          {Object.keys(markdownFiles).map((file) => {
+            if (!file.includes("/post/")) return;
+            let key = file.split("/").pop().replace(".md", "");
+            let route = `/post/${key}`;
+
+            return (
+              <Route
+                key={key}
+                path={route}
+                element={
+                  <>
+                    <PostCategories />
+                    <div className="framed">
+                      <MarkdownRenderer content={markdownFiles[file].default} />
+                    </div>
+                  </>
+                }
+              />
+            );
+          })}
         </Routes>
       </div>
       <Footer />

@@ -16,17 +16,18 @@ async function walkDir(root) {
     if (file.isDirectory()) {
       walkDir(fullPath);
     } else if (file.name.toLowerCase().includes(".md")) {
-      let reactPath = fullPath.replace("..", "src");
+      let route = fullPath
+        .toLowerCase()
+        .replace(/..\/assets|.md/g, "")
+        .replace(" ", "-");
       let title = await fs.promises.readFile(fullPath, "utf-8");
       title = title.split("\n").filter((row) => row.split("#").length == 2);
       if (title) title = title[0].replace(/\s+/g, " ").replace("#", "").trim();
       else title = "";
+
       let newEntry = {
         path: fullPath.replace("..", "src"),
-        route: fullPath
-          .toLowerCase()
-          .replace(/..\/components\/pages|.md/g, "")
-          .replace(" ", "-"),
+        route: route,
         title: title,
       };
       // console.log(newEntry);
@@ -36,8 +37,9 @@ async function walkDir(root) {
 }
 
 const out = [];
+const rootFolder = "../assets/post";
 async function exportJSON() {
-  await walkDir("../components/pages/post");
+  await walkDir(rootFolder);
 
   let jsonData = JSON.stringify(out);
   fs.writeFile("postList.json", jsonData, (err) => {

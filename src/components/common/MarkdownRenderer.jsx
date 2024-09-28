@@ -1,5 +1,3 @@
-// This script is a function that dinamically create a page from the markdown found in the pages/ directory
-import { useState } from "react";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -7,20 +5,8 @@ import PropTypes from "prop-types";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useParams } from "react-router-dom";
 
-export default function MarkdownRenderer(props) {
-  let file = "";
-  const params = useParams();
-  if (props.file == undefined && Object.keys(params).includes("mdFile")) {
-    file = props.mdDir + params.mdFile + ".md";
-  } else {
-    file = props.file;
-  }
-  const [content, setContent] = useState("");
-  fetch(file)
-    .then((response) => response.text())
-    .then((text) => setContent(text));
+export default function MarkdownRenderer({ content }) {
   return (
     <div className="md-renderer">
       <Markdown
@@ -48,6 +34,5 @@ export default function MarkdownRenderer(props) {
 }
 
 MarkdownRenderer.propTypes = {
-  file: PropTypes.string,
-  mdDir: PropTypes.string,
+  content: PropTypes.string,
 };

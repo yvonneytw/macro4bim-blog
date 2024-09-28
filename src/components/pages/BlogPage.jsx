@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import postList from "../../utils/postList.json";
-// import PropTypes from "prop-types";
 
 export default function BlogPage() {
+  const markdownFiles = import.meta.glob("../../assets/post/*.md", { eager: true });
   return (
     <>
       <h1>Macro4BIM Blog</h1>
@@ -13,11 +12,16 @@ export default function BlogPage() {
       </p>
 
       <ul>
-        {postList.map((post, i) => (
-          <li key={i}>
-            <Link to={post.route}>{post.title}</Link>
-          </li>
-        ))}
+        {Object.keys(markdownFiles).map((mdPath) => {
+          let key = mdPath.split("/").pop().replace(".md", "");
+          let route = `/post/${key}`;
+          let title = key.replace(/-/g, " ");
+          return (
+            <li key={key}>
+              <Link to={route}>{title}</Link>
+            </li>
+          );
+        })}
       </ul>
     </>
   );

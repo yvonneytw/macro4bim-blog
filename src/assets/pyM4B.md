@@ -8,8 +8,6 @@ pyMacro4BIM is a free extension of <a href="https://pyrevitlabs.notion.site/pyRe
 
 It is built mainly as a result of the Macro4BIM community and of course, our researches.
 
----
-
 ## How to install
 
 There is not a real installation, all you have to do is download all the scripts, similar to what you do when
@@ -46,8 +44,6 @@ Open the JSON file which is usually located at `%appdata%\pyRevit-Master\extensi
   "dependencies": []
 }
 ```
-
----
 
 ## Related blog posts
 
