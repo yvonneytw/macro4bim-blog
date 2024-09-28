@@ -19,30 +19,27 @@
   }
 
   #home {
-    background-image: url(/src/assets/home-white.png);
+    background-image: url(/src/assets/header/home-white.png);
   }
   #home:hover {
-    background-image: url(/src/assets/home-yellow.png);
+    background-image: url(/src/assets/header/home-yellow.png);
   }
   #blog {
-    background-image: url(/src/assets/blog-white.png);
+    background-image: url(/src/assets/header/blog-white.png);
   }
   #blog:hover {
-    background-image: url(/src/assets/blog-yellow.png);
+    background-image: url(/src/assets/header/blog-yellow.png);
   }
   #pym4b {
-    background-image: url(/src/assets/pym4b-white.png);
+    background-image: url(/src/assets/header/pym4b-white.png);
   }
   #pym4b:hover {
-    background-image: url(/src/assets/pym4b-yellow.png);
+    background-image: url(/src/assets/header/pym4b-yellow.png);
   }
   #dyn {
-    background-image: url(/src/assets/dyn-white.png);
+    background-image: url(/src/assets/header/dyn-white.png);
   }
   #dyn:hover {
-    background-image: url(/src/assets/dyn-yellow.png);
-  }
-  a.active {
-    outline: 1pt solid yellow;
+    background-image: url(/src/assets/header/dyn-yellow.png);
   }
 }

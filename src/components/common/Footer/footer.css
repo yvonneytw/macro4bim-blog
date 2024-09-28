@@ -1,0 +1,24 @@
+footer {
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
+  font-size: smaller;
+  padding: 1rem;
+  width: min(860px, 100vw);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  * {
+    margin: 0;
+  }
+  .contacts {
+    display: flex;
+    gap: 0.5rem;
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: darkgray;
+    }
+  }
+}

@@ -4,12 +4,9 @@ import HeaderComponent from "./components/common/Header/Header";
 // import "./App.css";
 import Home from "./components/pages/Home";
 import BlogPage from "./components/pages/BlogPage";
-import Footer from "./components/common/Footer";
+import Footer from "./components/common/Footer/Footer";
 import MarkdownRenderer from "./components/common/MarkdownRenderer";
-import PostCategories from "./components/common/Blog/PostCategories";
-// import RecentPost from "./components/common/Blog/RecentPost";
-// import PostShareAndMetadata from "./components/common/Blog/PostShareAndMetadata";
-// import CommentList from "./components/common/Comment/CommentList";
+import BlogPost from "./components/common/Blog/BlogPost";
 // import postList from "./utils/postList.json";
 const markdownFiles = import.meta.glob("./assets/**/*.md", { eager: true });
 
@@ -41,14 +38,7 @@ function App() {
               <Route
                 key={key}
                 path={route}
-                element={
-                  <>
-                    <PostCategories />
-                    <div className="framed">
-                      <MarkdownRenderer content={markdownFiles[file].default} />
-                    </div>
-                  </>
-                }
+                element={<BlogPost content={markdownFiles[file].default} />}
               />
             );
           })}
