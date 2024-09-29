@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Comment from "./Comment";
 import SeedComments from "./SeedComments.json";
+import CommentAdd from "./CommentAdd";
 
 export default function CommentList() {
   let currentPathname = useLocation().pathname;
@@ -11,6 +12,7 @@ export default function CommentList() {
         if (comment.pathname == currentPathname) {
           return (
             <div key={comment._id} className="comment-stack">
+              <CommentAdd />
               <Comment {...comment} />
             </div>
           );

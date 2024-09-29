@@ -4,6 +4,17 @@ export default function Footer() {
   return (
     <>
       <footer>
+        <div className="register">
+          <p>Stay posted with our new posts!</p>
+          <div>
+            <div>
+              <input type="text" name="" id="" placeholder="name" />
+              <input type="email" name="" id="" placeholder="e-mail" />
+            </div>
+            <button>Register</button>
+          </div>
+        </div>
+        <br />
         <div>
           <p>Your data will not be transferred to any 3rd party</p>
           <p>©️ {new Date().getFullYear()}, All rights reserved, macro4bim</p>

@@ -1,0 +1,39 @@
+.hero,
+.hero > video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* height: min(100vh, 860px); */
+  height: 100vh;
+}
+.hero video {
+  z-index: -1;
+  object-fit: cover;
+  outline: 1px solid hsl(0, 0%, 88%);
+  box-shadow: 0 0 50px hsl(0, 0%, 80%);
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  * {
+    width: min(100%, 700px);
+    font-weight: 200;
+    border: none;
+  }
+}
+video {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
