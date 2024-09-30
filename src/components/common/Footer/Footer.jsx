@@ -17,7 +17,7 @@ export default function Footer() {
         <br />
         <div>
           <p>Your data will not be transferred to any 3rd party</p>
-          <p>©️ {new Date().getFullYear()}, All rights reserved, macro4bim</p>
+          <p>© {new Date().getFullYear()}, All rights reserved, macro4bim</p>
         </div>
         <div className="contacts">
           <a href="https://github.com/GiuseppeDotto/pyM4B.extension" target="_blank">
