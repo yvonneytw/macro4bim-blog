@@ -21,6 +21,10 @@ function App() {
         }}
       >
         <Routes>
+          {
+            // scroll up at each route change
+            window.scrollTo(0, 0)
+          }
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/" element={<Home />} />
           <Route

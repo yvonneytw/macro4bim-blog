@@ -3,6 +3,10 @@
   line-height: 1.5;
   font-weight: 300;
 
+  --color-first: #41baae;
+  --color-second: #de5021;
+  --color-third: #dec328;
+  --color-action: #646cff;
   /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424; */
@@ -71,6 +75,19 @@ h1 {
 
 h2 {
   border-top: 1px solid hsl(0, 0%, 80%);
+}
+
+.color-1 {
+  color: var(--color-first);
+}
+.color-2 {
+  color: var(--color-second);
+}
+.color-3 {
+  color: var(--color-third);
+}
+.color-action {
+  color: var(--color-action);
 }
 
 @media (max-width: 800px) {

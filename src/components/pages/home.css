@@ -37,3 +37,19 @@ video {
     opacity: 1;
   }
 }
+
+.btn-pym4b {
+  margin: auto;
+  transition: translate 250ms ease-in-out;
+  img {
+    aspect-ratio: 1;
+    width: 3.3rem;
+  }
+}
+
+.btn-pym4b:hover {
+  translate: 0 -0.33rem;
+  button {
+    background-color: #353535;
+  }
+}

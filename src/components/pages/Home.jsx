@@ -1,10 +1,12 @@
 import mainLogo from "../../assets/mainLogo.png";
 import BackgroundVideo from "../../assets/BackgroundVideo.mp4";
 import "./home.css";
+import { Link } from "react-router-dom";
+import pym4bLogo from "../../assets/header/pym4b-white.png";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <div className="hero">
         <video muted loop={true} autoPlay={true}>
           <source src={BackgroundVideo} type="video/mp4" />
@@ -14,22 +16,39 @@ export default function Home() {
         <h2>BLOG ON BIM DIGITAL TECHNOLOGY IN THE AEC INDUSTRY</h2>
       </div>
       <h1>Macro4BIM</h1>
-      <h2>What do we do</h2>
-      <h3>Blogging & Research</h3>
+      {/* <h2>What do we do</h2>
+      <h3>Blogging & Research</h3> */}
       <p>
-        Macro4BIM is a blog focused on digital design and consulting within the
-        Architecture, Engineering, and Construction (AEC) industry. It covers topics
-        related to Building Information Modeling (BIM) and computational BIM, particularly
-        the advanced use of platforms like Dynamo and Python code. The blog provides
-        insights, tools, and solutions for professionals such as BIM specialists,
-        coordinators, and developers.
+        Macro4BIM is a <b>blog</b> focused on <b>digital design</b> and consulting within
+        the Architecture, Engineering, and Construction (AEC) industry. It covers topics
+        related to Building Information Modeling (<b>BIM</b>) and computational BIM,
+        particularly the advanced use of platforms like{" "}
+        <span className="color-1">Dynamo for Revit</span> and{" "}
+        <span className="color-3">Python</span> code. <br /> The blog provides insights,
+        tools, and solutions for professionals such as BIM specialists, coordinators, and
+        developers.
       </p>
+      <h3>Documenting while educating</h3>
       <p>
-        Here you will find many interesting solutions explained in hopefully funny and
-        pleasant posts that aims to help you in your work as well as educate you on how
-        the solution was achieved... yes, we like to explain the script, not only share!
-        😁
+        We love to write this blog because it is a great platform to keep a record of our
+        studies. We often re-read our texts and scripts indeed. 😁 <br />
+        Additionally, with our <b>open-source</b> nature, we believe that our texts can be
+        for you a valid educational source.
       </p>
-    </>
+      <h2>Most Recent Posts</h2>
+      <h2>pyM4B - extension for pyRevit</h2>
+      <p>
+        Most of our scripts are built to be used as extension as the majestic pyRevit.{" "}
+        <br />
+        Although we started deploying only Dynamo package, we are today only focused on
+        pyRevit mostly because of its efficiency.
+      </p>
+      <p>Visit the dedicated page to know more about our open-source extension:</p>
+      <Link to="/pym4b" className="btn-pym4b">
+        <button>
+          <img src={pym4bLogo} />
+        </button>
+      </Link>
+    </div>
   );
 }
