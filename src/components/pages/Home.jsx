@@ -44,10 +44,9 @@ export default function Home() {
         pyRevit mostly because of its efficiency.
       </p>
       <p>Visit the dedicated page to know more about our open-source extension:</p>
-      <Link to="/pym4b" className="btn-pym4b">
-        <button>
-          <img src={pym4bLogo} />
-        </button>
+      <Link to="/pym4b" className="link-pym4b">
+        <img src={pym4bLogo} />
+        <span>Learn More</span>
       </Link>
     </div>
   );
