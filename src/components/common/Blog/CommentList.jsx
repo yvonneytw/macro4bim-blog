@@ -7,17 +7,17 @@ export default function CommentList() {
   let currentPathname = useLocation().pathname;
   return (
     <div className="framed" style={{ padding: "0 3rem" }}>
-      <h3>Coments</h3>
+      <h3>Comments</h3>
       {SeedComments.map((comment) => {
         if (comment.pathname == currentPathname) {
           return (
             <div key={comment._id} className="comment-stack">
-              <CommentAdd />
               <Comment {...comment} />
             </div>
           );
         }
       })}
+      <CommentAdd />
     </div>
   );
 }

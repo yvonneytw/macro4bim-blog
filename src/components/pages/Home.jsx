@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <div className="hero">
-        <video muted loop={true} autoPlay={true}>
+        <video muted={true} loop={true} autoPlay={true}>
           <source src={BackgroundVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
