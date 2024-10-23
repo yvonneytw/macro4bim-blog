@@ -1,30 +1,60 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { VotesIcon, ViewsIcon } from "../common/Blog/PostShareAndMetadata";
+import DateFormat from "../common/DateFormat";
 
-function getTitle(content) {
-  let titles = content.split("\n").filter((row) => row.split("#").length == 2);
-  if (titles.length > 0) return titles[0].replace(/\s+/g, " ").replace("#", "").trim();
-  else return "---";
+function PostCard({ post }) {
+  return (
+    <div
+      style={{
+        border: "1px solid hsl(0,0%,80%)",
+        padding: "1rem",
+        margin: 0,
+      }}
+    >
+      <div style={{ backgroundColor: "darkgrey", height: "5rem" }}></div>
+      <h3>
+        <Link to={post.slug}>{post.title}</Link>
+      </h3>
+      <small style={{ color: "grey" }}>
+        {<DateFormat date={post.createdAt} />}
+        <br />
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, sunt?
+      </small>
+      <hr />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <VotesIcon votes={post.votes} />
+        <ViewsIcon views={post.views} />
+      </div>
+    </div>
+  );
 }
 
-export default function BlogPage() {
-  const markdownFiles = import.meta.glob("../../assets/post/*.md", { eager: true });
+export default function BlogPage({ posts }) {
   return (
     <>
       <h1>Macro4BIM Blog</h1>
       <h2>Posts</h2>
       <p>
-        Here is the core of Macro4BIM, where all the ideas come and are collected. Find below a list
-        of the recent posts.
+        Here is the core of Macro4BIM, where all the ideas come and are collected. Find
+        below a list of the recent posts.
       </p>
 
-      <ul>
-        {Object.keys(markdownFiles).map((mdPath) => {
-          let key = mdPath.split("/").pop().replace(".md", "");
-          let route = `/post/${key}`;
-          let title = getTitle(markdownFiles[mdPath].default);
+      <ul
+        style={{
+          listStyle: "none",
+          padding: 0,
+          display: "flex",
+          flexWrap: "wrap",
+          width: "100%",
+          gap: "1rem",
+        }}
+      >
+        {posts.map((post) => {
           return (
-            <li key={key}>
-              <Link to={route}>{title}</Link>
+            <li key={post._id} style={{ flex: "0 0 32%" }}>
+              {/* <Link to={post.slug}>{post.title}</Link> */}
+              {<PostCard post={post} />}
             </li>
           );
         })}

@@ -48,6 +48,33 @@ export default function Home() {
         <img src={pym4bLogo} />
         <span>Learn More</span>
       </Link>
+      <h2>Next Steps...</h2>
+      <h3>low difficulty</h3>
+      <ul>
+        <li>Rewrite all the posts including metadata</li>
+        <li>Nice looking post gallery</li>
+        <li>custom search based on post tags</li>
+      </ul>
+      <h3>high difficulty</h3>
+      <ul>
+        <li>
+          User
+          <ul>
+            <li>Store use data in session</li>
+            <li>
+              create user info page with
+              <ul>
+                <li>username</li>
+                <li>email (to change?)</li>
+                <li>password (to change?)</li>
+                <li>liked posts</li>
+                <li>commented posts</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Comments</li>
+      </ul>
     </div>
   );
 }

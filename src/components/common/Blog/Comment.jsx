@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import LikeButton from "./LikeButton";
 
 const replyIcon = (
   <svg

@@ -1,52 +1,36 @@
-.post-categories {
-  display: flex;
-  justify-content: space-between;
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 0.5rem;
-    a {
-      padding: 0.25rem;
-      border: 1px solid;
-    }
-    a.current {
-      color: #535bf2;
-    }
-  }
+.post-metadata {
   * {
     margin: 0;
-    color: darkgray;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  color: gray;
+  .post-info {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 10pt;
+  }
+  #post-votes:hover {
+    cursor: pointer;
+    scale: 1.1;
+  }
+  .share-div {
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 0.5rem;
+      li svg {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
   }
 }
 
-.post-metadata {
-  display: flex;
-  justify-content: space-between;
-  a,
-  p,
-  button {
-    font-size: small;
-    color: darkgrey;
-    margin: 0;
-    border: none;
-    background: none;
-  }
-  div:first-child {
-    svg {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin-right: 0.25rem;
-    }
-  }
-  div:nth-child(2) {
-    svg {
-      margin-right: 0.25rem;
-    }
-    button {
-      height: 1.5rem;
-      float: right;
-    }
-  }
+img {
+  margin: 0 auto;
 }
 
 .comment {
@@ -120,5 +104,63 @@
     color: white;
     background-color: #757575;
     font-weight: 200;
+  }
+}
+
+.blog-header {
+  * {
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+    color: hsl(0, 0%, 50%);
+    /* outline: 1px solid blue; */
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    li {
+      padding: 0.15rem 0.25rem;
+      border: 1px solid hsl(0, 0%, 80%);
+    }
+    li:hover {
+      border-color: hsl(0, 0%, 50%);
+      a {
+        color: hsl(0, 0%, 50%);
+      }
+    }
+  }
+  a {
+    color: darkgray;
+  }
+}
+
+.image-small {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: min(100%, 350px);
+  }
+  * {
+    text-align: center;
+    margin: 0;
+  }
+}
+.image-large {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 100%;
+  }
+  * {
+    text-align: center;
+    margin: 0;
   }
 }

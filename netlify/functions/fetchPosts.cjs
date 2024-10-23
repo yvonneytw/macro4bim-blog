@@ -1,34 +1,30 @@
 // netlify/functions/fetchPosts.js
-const { MongoClient } = require("mongodb");
+import mongoose from "mongoose";
+import Post from "../../mongodb-mongoose/model/Post";
+let conn = null;
 
 exports.handler = async (event, context) => {
   const uri = process.env.MONGODB_URI;
-  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  if (!conn) conn = mongoose.connect(uri);
 
   try {
-    await client.connect();
-    const database = client.db("your-database-name");
-    const postsCollection = database.collection("posts");
-    const commentsCollection = database.collection("comments");
-
-    const posts = await postsCollection.find({}).toArray();
-    const postsWithComments = await Promise.all(
-      posts.map(async (post) => {
-        const comments = await commentsCollection.find({ postId: post._id }).toArray();
-        return { ...post, comments };
-      })
-    );
-
+    await conn;
+    const query = event.queryStringParameters;
+    let published = query.published || "";
+    allPost = await Post.find({ published: `${published}` }).exec();
     return {
       statusCode: 200,
-      body: JSON.stringify(postsWithComments),
+      body: JSON.stringify(allPost),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to fetch posts" }),
+      body: JSON.stringify({ error: `Failed to fetch posts: ${error}` }),
     };
   } finally {
-    await client.close();
+    if (conn) {
+      await mongoose.disconnect();
+      conn = null;
+    }
   }
 };

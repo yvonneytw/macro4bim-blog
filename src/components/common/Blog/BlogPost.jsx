@@ -6,27 +6,28 @@ import PostShareAndMetadata from "./PostShareAndMetadata";
 import CommentList from "./CommentList";
 import "./blog.css";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-export default function BlogPost({ content }) {
+export default function BlogPost({ post }) {
+  const [content, setContent] = useState("");
   const location = useLocation();
+  useEffect(() => {
+    const getContent = async () => {
+      let response = await fetch(post.path);
+      let data = await response.text();
+      setContent(data);
+    };
+    getContent();
+  }, []);
   return (
     <>
-      <PostCategories />
+      <PostCategories {...post} />
       <div className="framed">
         <MarkdownRenderer content={content} />
       </div>
       {/* <RecentPost /> */}
-      <PostShareAndMetadata
-        location={location.pathname}
-        likes={1}
-        views={20}
-        date={"2024-08-18"}
-      />
-      <CommentList />
+      <PostShareAndMetadata location={location.pathname} {...post} />
+      <CommentList comments={post.comments} />
     </>
   );
 }
-
-BlogPost.propTypes = {
-  content: PropTypes.string,
-};

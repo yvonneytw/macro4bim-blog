@@ -1,19 +1,33 @@
-// import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, useLocation, Link } from "react-router-dom";
 import HeaderComponent from "./components/common/Header/Header";
 import Home from "./components/pages/Home";
 import BlogPage from "./components/pages/BlogPage";
 import Footer from "./components/common/Footer/Footer";
 import MarkdownRenderer from "./components/common/MarkdownRenderer";
 import BlogPost from "./components/common/Blog/BlogPost";
-const markdownFiles = import.meta.glob("./assets/**/*.md", { eager: true });
+import PyM4B from "./components/pages/pyM4B";
+import LoginButton from "./components/common/Auth/LoginButton";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        let response = await fetch("/.netlify/functions/fetchPosts?published=true");
+        let data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts: ", error);
+      }
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <>
       <HeaderComponent />
+      <LoginButton />
       <div
         className="main"
         style={{
@@ -25,28 +39,12 @@ function App() {
             // scroll up at each route change
             window.scrollTo(0, 0)
           }
-          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog" element={<BlogPage posts={posts} />} />
           <Route path="/" element={<Home />} />
-          <Route
-            path="/pym4b"
-            element={
-              <>
-                <MarkdownRenderer content={markdownFiles["./assets/pyM4B.md"].default} />
-              </>
-            }
-          />
-
-          {Object.keys(markdownFiles).map((file) => {
-            if (!file.includes("/post/")) return;
-            let key = file.split("/").pop().replace(".md", "");
-            let route = `/post/${key}`;
-
+          <Route path="/pym4b" element={<PyM4B />} />
+          {posts.map((post) => {
             return (
-              <Route
-                key={key}
-                path={route}
-                element={<BlogPost content={markdownFiles[file].default} />}
-              />
+              <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />
             );
           })}
         </Routes>

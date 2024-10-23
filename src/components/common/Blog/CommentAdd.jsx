@@ -5,7 +5,7 @@ export default function CommentAdd() {
       <input type="text" name="name" id="" placeholder="name *" required={true} />
       <input type="email" name="email" id="" placeholder="email *" required={true} />
       <small>The e-mail is used to notify you any interaction with your comment</small>
-      <textarea name="text" id=""></textarea>
+      <textarea name="text" id="" style={{ resize: "none" }}></textarea>
       <button>Submit</button>
     </div>
   );

@@ -25,6 +25,16 @@ export default function MarkdownRenderer({ content }) {
               </code>
             );
           },
+          blockquote({ node, children, ...props }) {
+            if (
+              typeof children[1].props.children == "string" &&
+              children[1].props.children.startsWith(":::")
+            ) {
+              let className = children[1].props.children.replace(/:::|\s/g, "");
+              return <div className={className}>{[children.slice(2)]}</div>;
+            }
+            return <blockquote {...props}>{children}</blockquote>;
+          },
         }}
       >
         {content}
