@@ -23,6 +23,9 @@ function App() {
     };
     fetchPosts();
   }, []);
+  let successFetch = typeof posts == "object" && posts.length > 0;
+  console.log(`successFetch: ${successFetch}\nfetched data:`);
+  console.log(posts);
 
   return (
     <>
@@ -39,14 +42,13 @@ function App() {
             // scroll up at each route change
             window.scrollTo(0, 0)
           }
-          <Route path="/blog" element={<BlogPage posts={posts} />} />
+          {successFetch && <Route path="/blog" element={<BlogPage posts={posts} />} />}
           <Route path="/" element={<Home />} />
           <Route path="/pym4b" element={<PyM4B />} />
-          {posts.map((post) => {
-            return (
-              <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />
-            );
-          })}
+          {successFetch &&
+            posts.map((post) => {
+              return <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />;
+            })}
         </Routes>
       </div>
       <Footer />
