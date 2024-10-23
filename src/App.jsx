@@ -4,7 +4,6 @@ import HeaderComponent from "./components/common/Header/Header";
 import Home from "./components/pages/Home";
 import BlogPage from "./components/pages/BlogPage";
 import Footer from "./components/common/Footer/Footer";
-import MarkdownRenderer from "./components/common/MarkdownRenderer";
 import BlogPost from "./components/common/Blog/BlogPost";
 import PyM4B from "./components/pages/pyM4B";
 import LoginButton from "./components/common/Auth/LoginButton";
@@ -24,8 +23,6 @@ function App() {
     fetchPosts();
   }, []);
   let successFetch = typeof posts == "object" && posts.length > 0;
-  console.log(`successFetch: ${successFetch}\nfetched data:`);
-  console.log(posts);
 
   return (
     <>

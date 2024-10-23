@@ -47,6 +47,8 @@ Open the JSON file which is usually located at `%appdata%\pyRevit-Master\extensi
 
 ## Related blog posts
 
-<center>
-<iframe src="https://giphy.com/embed/Yj2nHhbGsNQSrGyvI7" width="480" height="480" frameBorder="0"></iframe>
-</center>
+> :::image-small
+>
+> ![](https://media3.giphy.com/media/Yj2nHhbGsNQSrGyvI7/giphy.gif)
+>
+> We are working on it
