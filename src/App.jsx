@@ -4,7 +4,6 @@ import HeaderComponent from "./components/common/Header/Header";
 import Home from "./components/pages/Home";
 import BlogPage from "./components/pages/BlogPage";
 import Footer from "./components/common/Footer/Footer";
-import MarkdownRenderer from "./components/common/MarkdownRenderer";
 import BlogPost from "./components/common/Blog/BlogPost";
 import PyM4B from "./components/pages/pyM4B";
 import LoginButton from "./components/common/Auth/LoginButton";
@@ -23,6 +22,7 @@ function App() {
     };
     fetchPosts();
   }, []);
+  let successFetch = typeof posts == "object" && posts.length > 0;
 
   return (
     <>
@@ -39,14 +39,13 @@ function App() {
             // scroll up at each route change
             window.scrollTo(0, 0)
           }
-          <Route path="/blog" element={<BlogPage posts={posts} />} />
+          {successFetch && <Route path="/blog" element={<BlogPage posts={posts} />} />}
           <Route path="/" element={<Home />} />
           <Route path="/pym4b" element={<PyM4B />} />
-          {posts.map((post) => {
-            return (
-              <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />
-            );
-          })}
+          {successFetch &&
+            posts.map((post) => {
+              return <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />;
+            })}
         </Routes>
       </div>
       <Footer />

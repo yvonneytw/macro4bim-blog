@@ -3,10 +3,8 @@ import mongoose from "mongoose";
 import Post from "../../mongodb-mongoose/model/Post";
 let conn = null;
 
-exports.handler = async (event, context) => {
-  // const uri = process.env.MONGODB_URI;
-  const uri =
-    "mongodb+srv://macro4bim:eXS4lsa5rCzfU1DP@cluster0.a9cbb.mongodb.net/m4bBlog?retryWrites=true&w=majority&appName=Cluster0";
+module.exports.handler = async (event, context) => {
+  const uri = process.env.MONGODB_URI;
   if (!conn) conn = mongoose.connect(uri);
 
   try {
