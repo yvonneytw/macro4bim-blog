@@ -3,10 +3,9 @@ import { Routes, Route, useLocation, Link } from "react-router-dom";
 import HeaderComponent from "./components/common/Header/Header";
 import Home from "./components/pages/Home";
 import BlogPage from "./components/pages/BlogPage";
-import Footer from "./components/common/Footer/Footer";
-import MarkdownRenderer from "./components/common/MarkdownRenderer";
-import BlogPost from "./components/common/Blog/BlogPost";
 import PyM4B from "./components/pages/pyM4B";
+import Footer from "./components/common/Footer/Footer";
+import BlogPost from "./components/common/Blog/BlogPost";
 import LoginButton from "./components/common/Auth/LoginButton";
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
         let response = await fetch("/.netlify/functions/fetchPosts?published=true");
         let data = await response.json();
         setPosts(data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching posts: ", error);
       }
@@ -42,11 +42,9 @@ function App() {
           <Route path="/blog" element={<BlogPage posts={posts} />} />
           <Route path="/" element={<Home />} />
           <Route path="/pym4b" element={<PyM4B />} />
-          {posts.map((post) => {
-            return (
-              <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />
-            );
-          })}
+          {/* {posts.map((post) => {
+            return <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />;
+          })} */}
         </Routes>
       </div>
       <Footer />

@@ -4,17 +4,20 @@ import Post from "../../mongodb-mongoose/model/Post";
 let conn = null;
 
 exports.handler = async (event, context) => {
-  const uri = process.env.MONGODB_URI;
+  // const uri = process.env.MONGODB_URI;
+  const uri =
+    "mongodb+srv://macro4bim:eXS4lsa5rCzfU1DP@cluster0.a9cbb.mongodb.net/m4bBlog?retryWrites=true&w=majority&appName=Cluster0";
   if (!conn) conn = mongoose.connect(uri);
 
   try {
     await conn;
     const query = event.queryStringParameters;
     let published = query.published || "";
-    allPost = await Post.find({ published: `${published}` }).exec();
+    let allPost = await Post.find({ published: `${published}` }).exec();
     return {
       statusCode: 200,
-      body: JSON.stringify(allPost),
+      // body: JSON.stringify(allPost),
+      body: JSON.stringify(process.env),
     };
   } catch (error) {
     return {
