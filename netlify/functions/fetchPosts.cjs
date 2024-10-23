@@ -16,8 +16,8 @@ exports.handler = async (event, context) => {
     let allPost = await Post.find({ published: `${published}` }).exec();
     return {
       statusCode: 200,
-      // body: JSON.stringify(allPost),
-      body: JSON.stringify(process.env),
+      body: JSON.stringify(allPost),
+      // body: JSON.stringify(uri),
     };
   } catch (error) {
     return {

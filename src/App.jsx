@@ -16,14 +16,12 @@ function App() {
         let response = await fetch("/.netlify/functions/fetchPosts?published=true");
         let data = await response.json();
         setPosts(data);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching posts: ", error);
       }
     };
     fetchPosts();
   }, []);
-
   return (
     <>
       <HeaderComponent />
@@ -39,12 +37,13 @@ function App() {
             // scroll up at each route change
             window.scrollTo(0, 0)
           }
-          <Route path="/blog" element={<BlogPage posts={posts} />} />
+          {posts.length > 0 && <Route path="/blog" element={<BlogPage posts={posts} />} />}
           <Route path="/" element={<Home />} />
           <Route path="/pym4b" element={<PyM4B />} />
-          {/* {posts.map((post) => {
-            return <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />;
-          })} */}
+          {posts.length > 0 &&
+            posts.map((post) => {
+              return <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />;
+            })}
         </Routes>
       </div>
       <Footer />
