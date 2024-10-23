@@ -2,7 +2,6 @@
 "createdAt": "Dec 5, 2020",
 "title": "Why Limit Yourself to RGB?",
 "views": 390,
-"comments": [],
 "votes": 3,
 "tags": ["Dynamo", "Revit API", "Python"],
 "published": true

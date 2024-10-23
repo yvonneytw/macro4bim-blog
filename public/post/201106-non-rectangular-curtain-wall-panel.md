@@ -2,7 +2,6 @@
 {"createdAt": "Nov 06, 2020",
 "title": "Non-Rectangular Curtain Wall Panels",
 "views": 1793,
-"comments": [],
 "votes": 2,
 "published": true}
 -->

@@ -2,7 +2,6 @@
 "createdAt": "Nov 13, 2020",
 "title": "Advanced shared parameters management",
 "views": 899,
-"comments": [],
 "votes": 3,
 "tags": ["Dynamo", "Revit API", "Python", "Revit Family"],
 "published": true

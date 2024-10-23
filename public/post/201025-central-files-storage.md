@@ -2,7 +2,6 @@
 {"createdAt": "Oct 25, 2020",
 "title": "Central Files Storage",
 "views": 205,
-"comments": [],
 "votes": 3,
 "published": true}
 -->

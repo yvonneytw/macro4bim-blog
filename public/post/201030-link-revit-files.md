@@ -2,7 +2,6 @@
 {"createdAt": "Oct 30, 2020",
 "title": "Link multiple Revit Files at a time",
 "views": 1324,
-"comments": [],
 "votes": 4,
 "published": true}
 -->

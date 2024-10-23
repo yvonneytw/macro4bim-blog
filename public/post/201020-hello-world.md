@@ -2,7 +2,6 @@
 {"createdAt": "Oct 20, 2020",
 "title": "Hello World!",
 "views": 123,
-"comments": [],
 "votes": 8,
 "published": true}
 -->
