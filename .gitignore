@@ -28,4 +28,4 @@ dist-ssr
 
 # Local data not to share
 .env
-mongodb-mongoose/
+mongodb-mongoose/createBlog.js
