@@ -36,6 +36,14 @@ export default function Home() {
         for you a valid educational source.
       </p>
       <h2>Most Recent Posts</h2>
+      <div className="image-small">
+        <img
+          src="https://media2.giphy.com/media/hvN3SkNMRSB7mZa8JL/giphy.gif"
+          alt="wip"
+          style={{ objectFit: "cover" }}
+        />
+        <p>We are working on it...</p>
+      </div>
       <h2>pyM4B - extension for pyRevit</h2>
       <p>
         Most of our scripts are built to be used as extension as the majestic pyRevit.{" "}

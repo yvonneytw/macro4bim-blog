@@ -139,28 +139,3 @@ img {
     color: darkgray;
   }
 }
-
-.image-small {
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  img {
-    width: min(100%, 350px);
-  }
-  * {
-    text-align: center;
-    margin: 0;
-  }
-}
-.image-large {
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  img {
-    width: 100%;
-  }
-  * {
-    text-align: center;
-    margin: 0;
-  }
-}
