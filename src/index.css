@@ -103,11 +103,17 @@ h2 {
     margin: 0;
   }
 }
-.image-small > img {
-  width: min(100%, 350px);
+.image-small {
+  img {
+    display: block;
+    width: min(100%, 350px);
+  }
 }
-.image-large > img {
-  width: 100%;
+.image-large {
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 .button-list {
