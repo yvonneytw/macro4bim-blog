@@ -5,13 +5,16 @@ let conn = null;
 
 module.exports.handler = async (event, context) => {
   const uri = process.env.MONGODB_URI;
-  if (!conn) conn = mongoose.connect(uri);
+  if (!conn) {
+    conn = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    await conn;
+  }
 
   try {
     await conn;
     const query = event.queryStringParameters;
     let published = query.published || "";
-    allPost = await Post.find({ published: `${published}` }).exec();
+    const allPost = await Post.find({ published: `${published}` }).exec();
     return {
       statusCode: 200,
       body: JSON.stringify(allPost),
@@ -21,10 +24,5 @@ module.exports.handler = async (event, context) => {
       statusCode: 500,
       body: JSON.stringify({ error: `Failed to fetch posts: ${error}` }),
     };
-  } finally {
-    if (conn) {
-      await mongoose.disconnect();
-      conn = null;
-    }
   }
 };
