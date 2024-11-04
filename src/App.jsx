@@ -44,7 +44,13 @@ function App() {
           <Route path="/pym4b" element={<PyM4B />} />
           {successFetch &&
             posts.map((post) => {
-              return <Route key={post._id} path={post.slug} element={<BlogPost post={post} />} />;
+              return (
+                <Route
+                  key={post._id}
+                  path={post.slug}
+                  element={<BlogPost post={post} />}
+                />
+              );
             })}
         </Routes>
       </div>

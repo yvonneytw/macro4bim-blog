@@ -1,7 +1,7 @@
 <!-- {
 "createdAt": "Aug 7, 1993",
 "title": "Control subcategories with Dynamo of pyRevit",
-"tags": ["Dynamo", "Revit API", "Python", "pyM4B],
+"tags": ["Dynamo", "Revit API", "Python", "pyM4B"],
 "votes": 0,
 "views": 1295,
 "published": true
